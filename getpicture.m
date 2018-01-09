@@ -2,11 +2,11 @@
 
 
 pkg load image-acquisition;
-obj = videoinput("v4l2", "/dev/video0");
+obj = videoinput("v4l2", "/dev/video1");
 get(obj);
 set(obj, "VideoFormat", "RGB3");
 set(obj, "VideoResolution", [320 240]);
 start(obj, 2);
 img = getsnapshot(obj);
-image(img);
+%image(img);
 imwrite(img, "e.jpg");

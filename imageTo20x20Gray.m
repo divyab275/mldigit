@@ -1,4 +1,4 @@
-function vectorImage = imageTo20x20Gray(fileName, cropPercentage=0, rotStep=0)
+function vectorImage = imageTo20x20Gray(fileName, cropPercentage=0, rotStep=0,Theta1,Theta2)
 % Read as RGB image
 Image3DmatrixRGB = imread(fileName);
 % Convert to NTSC image (YIQ)
@@ -54,11 +54,13 @@ delta = maxValue - minValue;
 normImage = (invertedImage - minValue) / delta;
 
 % Add contrast. Multiplication factor is contrast control.
-contrastedImage = sigmoid((normImage -0.5) * 5);
+contrastedImage = sigmoid((normImage -0.5) * 15);
 
 % Show image as seen by the classifier
-imshow(contrastedImage, [-1, 1] );
-
+i = predict(Theta1,Theta2,reshape(normImage, 1, newSize(1) * newSize(2)));
+figure('Name',num2str (i)),imshow(contrastedImage, [-1, 1] );
+pause(0.5);
+close;
 % Output the matrix as a unrolled vector
 vectorImage = reshape(normImage, 1, newSize(1) * newSize(2));
 
