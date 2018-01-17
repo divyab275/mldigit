@@ -8,9 +8,9 @@
     t = reshape(t,1,400);
     k = input("Press 1 to add to the dataset");
     if(k==1)
-      x = [x;t];
-      Y = [Y;label];
-      save("dataset.mat",'x','Y');
+      X = [X;t];
+      y = [y;label];
+      save("new.mat",'X','y');
     end
     % title(gca,num2str (i));
   endwhile
