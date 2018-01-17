@@ -1,5 +1,5 @@
 
-  i=0;
+  i=0;k=0;
   while (i!=11)
     getpicture
     t = imageTo20x20Gray('e.jpg',0,0,Theta1,Theta2);
