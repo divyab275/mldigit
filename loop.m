@@ -6,7 +6,7 @@ p = input("Enter crop ratio:");
     i = predict(Theta1,Theta2,t)
     pause(0.25);
     t = reshape(t,1,400);
-    %k = input("Press 1 to add to the dataset");
+    k = input("Press 1 to add to the dataset");
     
     if(k==1)
       X = [X;t];
