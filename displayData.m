@@ -8,7 +8,7 @@ function [h, display_array] = displayData(X, example_width)
 if ~exist('example_width', 'var') || isempty(example_width) 
 	example_width = round(sqrt(size(X, 2)));
 end
-
+pkg load image;
 % Gray Image
 colormap(gray);
 
@@ -50,10 +50,9 @@ end
 
 % Display Image
 h = imagesc(display_array, [-1 1]);
-
 % Do not show axis
 axis image off
 
-drawnow;
+%drawnow;
 
 end

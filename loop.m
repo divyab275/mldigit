@@ -10,7 +10,7 @@ p = input("Enter crop ratio:");
     %k = input("Press 1 to add to the dataset");
     i=11;
     
-    subplot(10,10,[6:10 16:20 26:30 36:40 46:50 56:60 66:70 76:80]);
+    subplot(12,10,[26:30 36:40 46:50 56:60 66:70 76:80 86:90 96:100]);
     h = displayData(Theta1(:, 2:end));
     %imshow(h);
     if(k==1)
