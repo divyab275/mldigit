@@ -57,10 +57,25 @@ normImage = (invertedImage - minValue) / delta;
 contrastedImage = sigmoid((normImage -0.5) * 15);
 
 % Show image as seen by the classifier
-i = predict(Theta1,Theta2,reshape(normImage, 1, newSize(1) * newSize(2)));
-figure('Name',num2str (i)),imshow(contrastedImage, [-1, 1] );
+[i,s] = predict2(Theta1,Theta2,reshape(normImage, 1, newSize(1) * newSize(2)));
+figure('Name',num2str (i));
+suptitle("Digit Recogonition using Neural Networks");
+set(findobj(gcf,'type','axes'),'Visible','off');
+subplot(10,10,[1:5 11:15 21:25 31:35 41:45 51:55 61:65 71:75]),axis off;
+
+imshow(contrastedImage, [-1, 1] );
+axis off;
 pause(0.5);
-close;
+subplot(10,10,[81:85 91:95]);
+a=num2str(i);
+tec = strcat("Prediction :  ",a);
+text(0.5,0.5,tec,'FontSize',25,'HorizontalAlignment','center');
+axis off;
+subplot(10,10,[86:90 96:100]),axis off;
+a=num2str(s);
+tec = strcat("Accuracy :  ",a);
+text(0.5,0.5,tec,'FontSize',25,'HorizontalAlignment','center');
+axis off;
 % Output the matrix as a unrolled vector
 vectorImage = reshape(normImage, 1, newSize(1) * newSize(2));
 
